@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <html>
+        <head>
+            <title>Voter's Reg</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+            <meta charset="utf-8" />
+            <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='signup_style.css')}}" />
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+            <link href="https://fonts.googleapis.com/css?family=Titillium+Web:400,300,600" rel="stylesheet" type="text/css" />
+        </head>
+
+        <body class="body">
+            <div class="image-container">
+                <div class="text">Modern Secured Digital eVoting & Analysis</div>
+            </div>
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for msg in messages%}
+                        <p style="color:white;font-weight:1000;font-size:16px;text-align:center">{{msg}}</p>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            <div class="login-page">
+                <div class="form">
+                    <form method="POST" class="login-form" action="/signup">
+                        <input type="text" name="Name" placeholder="FULL NAME" required />
+                        <input type="text" name="Register" placeholder="Register Number" required />
+                        <input type="text" name="DOB" placeholder="YYYY-MM-DD" required />
+                        <input type="text" name="email" placeholder="abc@xyz.com" required />
+                        <input type="password" name="Password" placeholder="PASSWORD" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain atleast One Number and One Uppercase and Lowercase Letter, And atleast 8 or more Characters!" required />
+                        <button type="submit">REGISTER</button>
+                    </form>
+                </div>
+            </div>
+
+            <div id="mybutton">
+                <button class="feedback" onclick="window.location.href='/about'">Meet The Team</button>
+            </div>
+        </body>
+    </html>
+</html>

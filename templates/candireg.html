@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <html>
+        <head>
+            <title>Admin</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+            <meta charset="utf-8" />
+            <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='candiReg_style.css')}}" />
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+            <link href="https://fonts.googleapis.com/css?family=Titillium+Web:400,300,600" rel="stylesheet" type="text/css" />
+        </head>
+
+        <body class="body">
+            <div class="container">
+                <div class="image-container">
+                    <div class="text">Modern Secured Digital eVoting & Analysis</div>
+                </div>
+                <button class="btn" style="font-size: 20px; cursor: pointer;" onclick="openNav()">&#9776; Manage</button>
+            </div>
+
+            <div id="mySidenav" class="sidenav">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <a style="color: white;" href="/">HOME</a>
+                <a style="color: white;" href="/validatevoter">Validate Voters</a>
+                <a style="color: white;" href="/voter">View Voters</a>
+                <a style="color: white;" href="/candidate">View Candidates</a>
+                <a style="color: white;" href="/graph">Visualize Data</a>
+            </div>
+
+            <script>
+                function openNav() {
+                    document.getElementById("mySidenav").style.width = "250px";
+                }
+
+                function closeNav() {
+                    document.getElementById("mySidenav").style.width = "0";
+                }
+            </script>
+
+            <div class="candidate-reg">
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        {% for msg in messages%}
+                            <p style="color:white;font-weight:1000;font-size:16px;text-align:center">{{msg}}</p>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+                <div class="form">
+                    <form method="POST" action='/candidate_reg' >
+                        <input type="text" placeholder="FULL NAME" name="Name" required />
+                        <input type="text" placeholder="DOB (YYYY-MM-DD)" name="DOB" required />
+                        <input type="text" placeholder="Register Number" name="Register" required />
+                        <input type="text" placeholder="abc@xyz.com" name="email" required />
+                        <button type="submit">REGISTER</button>
+                    </form>
+                </div>
+            </div>
+        </body>
+    </html>
+</html>

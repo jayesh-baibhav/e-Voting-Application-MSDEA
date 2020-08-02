@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <html>
+        <head>
+            <title>Vote your Candidate!</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+            <meta charset="utf-8" />
+            <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='voteHere_style.css')}}" />
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+            <link href="https://fonts.googleapis.com/css?family=Titillium+Web:400,300,600" rel="stylesheet" type="text/css" />
+        </head>
+
+        <div class="image-container">
+            <div class="text">Modern Secured Digital eVoting & Analysis</div>
+        </div>
+
+        <table class="candidate">
+            <thead>
+                <tr>
+                    <th>S.No</th>
+                    <th>NAME</th>
+                    <th>REG NO.</th>
+                    <th>SELECT</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for candidate in candidates %}
+                <tr>
+                    <td></td>
+                    <td>{{candidate.Name}}</td>
+                    <td>{{candidate.Register.decode('utf-8')}}</td>
+                    <td>
+                        <form action='/castvote' method="POST">
+                        <button type="submit" value='{{candidate.Register.decode("utf-8")}}' name='vote' class="vote_button" onclick="window.location.href='/castvote'">Vote</button>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <script>
+            function myFunction() {
+                confirm("Press OK to Confirm!");
+            }
+        </script>
+    </html>
+</html>

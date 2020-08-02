@@ -1,0 +1,193 @@
+body {
+    background-image: url("https://ordinaryfaith.net/wp-content/uploads/2016/03/Gray-plain-website-background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.image-container {
+    background-size: cover;
+    position: relative;
+    height: 100px;
+}
+
+.text {
+    background-color: white;
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0 auto;
+    padding: 10px;
+    width: 97%;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    mix-blend-mode: screen;
+}
+
+.dec_center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.deconstructed {
+    position: relative;
+    margin: auto;
+    height: 0.85em;
+    color: transparent;
+    font-family: "Cambay", sans-serif;
+    font-size: 50px;
+    margin-bottom: 1%;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.03em;
+}
+
+.deconstructed > div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    color: white;
+    pointer-events: none;
+}
+
+.deconstructed > div:nth-child(1) {
+    -webkit-mask-image: linear-gradient(black 25%, transparent 25%);
+    mask-image: linear-gradient(black 25%, transparent 25%);
+    animation: deconstructed1 5s infinite;
+}
+
+.deconstructed > div:nth-child(2) {
+    -webkit-mask-image: linear-gradient(transparent 25%, black 25%, black 50%, transparent 50%);
+    mask-image: linear-gradient(transparent 25%, black 25%, black 50%, transparent 50%);
+    animation: deconstructed2 5s infinite;
+}
+
+.deconstructed > div:nth-child(3) {
+    -webkit-mask-image: linear-gradient(transparent 50%, black 50%, black 75%, transparent 75%);
+    mask-image: linear-gradient(transparent 50%, black 50%, black 75%, transparent 75%);
+    animation: deconstructed3 5s infinite;
+}
+
+.deconstructed > div:nth-child(4) {
+    -webkit-mask-image: linear-gradient(transparent 75%, black 75%);
+    mask-image: linear-gradient(transparent 75%, black 75%);
+    animation: deconstructed4 5s infinite;
+}
+
+@keyframes deconstructed1 {
+    0% {
+        transform: translateX(100%);
+    }
+    26% {
+        transform: translateX(0%);
+    }
+    83% {
+        transform: translateX(-0.1%);
+    }
+    100% {
+        transform: translateX(-120%);
+    }
+}
+
+@keyframes deconstructed2 {
+    0% {
+        transform: translateX(100%);
+    }
+    24% {
+        transform: translateX(0.5%);
+    }
+    82% {
+        transform: translateX(-0.2%);
+    }
+    100% {
+        transform: translateX(-125%);
+    }
+}
+
+@keyframes deconstructed3 {
+    0% {
+        transform: translateX(100%);
+    }
+    22% {
+        transform: translateX(0%);
+    }
+    81% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-130%);
+    }
+}
+
+@keyframes deconstructed4 {
+    0% {
+        transform: translateX(100%);
+    }
+    20% {
+        transform: translateX(0%);
+    }
+    80% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-135%);
+    }
+}
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+.column {
+    float: left;
+    width: 18.5%;
+    margin-bottom: 16px;
+    padding: 0 10px;
+}
+
+@media screen and (max-width: 650px) {
+    .column {
+        width: 100%;
+        display: block;
+    }
+}
+
+.card {
+    box-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    background-color: #48c9b0;
+    margin: auto;
+    text-align: center;
+}
+
+.title {
+    font-weight: 900;
+    font-size: 18px;
+}
+
+.container {
+    padding: 0 16px;
+}
+
+.container::after,
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.title {
+    color: white;
+}
+
+a {
+    text-decoration: none;
+    font-size: 22px;
+    color: black;
+}

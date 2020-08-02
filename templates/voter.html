@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <html>
+        <head>
+            <title>Voter's List</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+            <meta charset="utf-8" />
+            <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='viewVoter_style.css')}}" />
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+            <link href="https://fonts.googleapis.com/css?family=Titillium+Web:400,300,600" rel="stylesheet" type="text/css" />
+        </head>
+        <div class="container">
+            <div class="image-container">
+                <div class="text">Modern Secured Digital eVoting & Analysis</div>
+            </div>
+            <button class="btn" style="font-size: 20px; cursor: pointer;" onclick="openNav()">&#9776; Manage</button>
+        </div>
+
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a style="color: white;" href="/">LOGOUT</a>
+            <a style="color: white;" href="candidate_reg">Registration</a>
+            <a style="color: white;" href="/validatevoter">Validate Voters</a>
+            <a style="color: white;" href="/candidate">View Candidates</a>
+            
+        </div>
+
+        <script>
+            function openNav() {
+                document.getElementById("mySidenav").style.width = "250px";
+            }
+
+            function closeNav() {
+                document.getElementById("mySidenav").style.width = "0";
+            }
+        </script>
+
+        <table class="candidate">
+            <thead>
+                <tr>
+                    <th>S.No</th>
+                    <th>NAME</th>
+                    <th>REGISTER NO.</th>
+                    <th>EMAIL</th>
+                    <th>DOB</th>
+                    <th>VOTED</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for voter in voters%}    
+                <tr>
+                    <td></td>
+                    <td>{{voter.Name}}</td>
+                    <td>{{voter.Register.decode("utf-8")}}</td>
+                    <td>{{voter.email}}</td>
+                    <td>{{voter.DOB}}</td>
+                    <td>{{voter.Voted}}</td>
+                {% endfor %}
+                </tr>
+                </tr>
+            </tbody>
+        </table>
+    </html>
+</html>

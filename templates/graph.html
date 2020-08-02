@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <html>
+        <head>
+            <title>OTP</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+            <meta charset="utf-8" />
+            <link rel="stylesheet" type="text/css" href="otp_style.css" />
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+            <link href="https://fonts.googleapis.com/css?family=Titillium+Web:400,300,600" rel="stylesheet" type="text/css" />
+        </head>
+
+        <body>
+  		<center>
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for msg in messages%}
+                    <p style="color:white;font-weight:1000;font-size:16px;text-align:center">{{msg}}</p>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+              <p><embed type='image/svg+xml' src={{line_chart|safe}} style='max-width: 800px;'></p>
+              <p><embed type='image/svg+xml' src={{pie_chart|safe}} style='max-width: 800px;'></p>
+		</center>
+	</body>
+
+    </html>
+</html>
+
+<style>
+body {
+  background-color: lightblue;
+}
+</style>
